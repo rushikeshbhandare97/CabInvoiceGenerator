@@ -27,3 +27,16 @@ public class InvoiceGenerator
         }
     }
 }
+ public double CalculateFare(double distance, int time, string type = "normal")
+        {
+            double totalFare = distance * minimumCostPerKilometer + time * costPerTime;
+            if (totalFare < minimumFare)
+            RideType rideType = new RideType(type);
+            double totalFare = distance * rideType.minimumCostPerKilometer + time * rideType.costPerTime;
+            if (totalFare < rideType.minimumFare)
+            {
+                return minimumFare;
+                return rideType.minimumFare;
+            }
+            return totalFare;
+        }
